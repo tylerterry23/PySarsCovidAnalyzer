@@ -1,0 +1,77 @@
+body {
+  background-color: #331900; }
+  body .container {
+    background-color: white;
+    width: 80%;
+    height: 100vh; }
+    body .container .logo {
+      justify-content: center;
+      height: 170px;
+      text-align: center; }
+    body .container .box-shadow {
+      box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.2);
+      transition: color .5s, background-color .5s, border .5s; }
+    body .container .panel1 {
+      display: flex;
+      flex-direction: row; }
+      body .container .panel1 .upload h5 {
+        padding: 5px;
+        font-size: 14px !important;
+        background-color: #fcc30f;
+        height: 30px;
+        text-align: center;
+        margin-bottom: 0 !important; }
+        body .container .panel1 .upload h5 a {
+          text-decoration: none;
+          color: black;
+          font-size: 14px !important; }
+      body .container .panel1 .results h5 {
+        padding: 5px;
+        font-size: 14px !important;
+        background-color: #331900;
+        height: 30px;
+        text-align: center;
+        margin: auto;
+        color: white;
+        margin-bottom: 0 !important; }
+        body .container .panel1 .results h5 a {
+          text-decoration: none;
+          color: white;
+          font-size: 14px !important; }
+    body .container .panel {
+      background-color: #fcc30f;
+      border: 1px solid #d3a103;
+      position: relative;
+      box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.2);
+      transition: color .5s, background-color .5s, border .5s; }
+      body .container .panel .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid #fcc30f;
+        flex-wrap: wrap;
+        padding: 5px;
+        font-weight: bold;
+        transition: color .5s, background-color .5s, border .5s; }
+      body .container .panel .panel_body {
+        background-color: #fff;
+        padding: 5px;
+        text-align: center; }
+        body .container .panel .panel_body .hidden {
+          display: none; }
+        body .container .panel .panel_body .file1 {
+          display: inline-block;
+          background: #fcc30f;
+          border: 1px solid #d3a103;
+          border-radius: 3px;
+          padding: 5px 8px;
+          outline: none;
+          white-space: nowrap;
+          -webkit-user-select: none;
+          cursor: pointer;
+          text-shadow: 1px 1px #fff;
+          font-weight: 700;
+          font-size: 10pt; }
+
+/*# sourceMappingURL=results.css.map */

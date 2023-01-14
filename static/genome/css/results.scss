@@ -1,0 +1,115 @@
+// variables:
+$yellow_color: #fcc30f;
+$yellow_border: #d3a103;
+$bg_color: #331900;
+
+body {
+  background-color: $bg_color;
+
+  .container {
+    background-color: white;
+    width: 80%;
+    height: 100vh;
+
+    .logo {
+      justify-content: center;
+      height: 170px;
+      text-align: center;
+    }
+
+    .box-shadow {
+      box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.2);
+      transition: color .5s, background-color .5s, border .5s;
+    }
+
+    .panel1 {
+      display: flex;
+      flex-direction: row;
+
+      .upload {
+        h5 {
+          padding: 5px;
+          font-size: 14px !important;
+          background-color: $yellow_color;
+          height: 30px;
+          text-align: center;
+          margin-bottom: 0 !important;
+
+          a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px !important;
+          }
+        }
+      }
+
+      .results {
+        h5 {
+          padding: 5px;
+          font-size: 14px !important;
+          background-color: $bg_color;
+          height: 30px;
+          text-align: center;
+          margin: auto;
+          color: white;
+          margin-bottom: 0 !important;
+
+          a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+
+    .panel {
+      background-color: $yellow_color;
+      border: 1px solid $yellow_border;
+      position: relative;
+      box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.2);
+      transition: color .5s, background-color .5s, border .5s;
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        //color: #986516;
+        border-bottom: 1px solid $yellow_color;
+        flex-wrap: wrap;
+        padding: 5px;
+        font-weight: bold;
+        transition: color .5s, background-color .5s, border .5s;
+      }
+
+      .panel_body {
+        background-color: #fff;
+        padding: 5px;
+        text-align: center;
+
+        .hidden {
+          display: none;
+        }
+
+        .file1 {
+          display: inline-block;
+          background: $yellow_color;
+          border: 1px solid $yellow_border;
+          border-radius: 3px;
+          padding: 5px 8px;
+          outline: none;
+          white-space: nowrap;
+          -webkit-user-select: none;
+          cursor: pointer;
+          text-shadow: 1px 1px #fff;
+          font-weight: 700;
+          font-size: 10pt;
+        }
+
+      }
+    }
+
+  }
+
+}

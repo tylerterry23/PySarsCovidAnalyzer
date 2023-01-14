@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% load sass_tags %}
+
+{% block title %} Upload File {% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% sass_src 'genome/css/home.scss' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="py-3 container">
+
+            {% include "partials/_loader.html" %}
+
+            <div class="col-4 offset-4 logo">
+                <h2><img src="{% static 'logo.png' %}"></h2>
+            </div>
+
+            <div class="my-3 col-6 offset-3 panel1 box-shadow">
+                <div class="col-6 upload">
+                    <h6>
+                        <a href="{% url 'upload_txt' %}">Upload</a>
+                    </h6>
+                </div>
+                <div class="col-6 results">
+                    <h6>
+                        <a href="">Results</a>
+                    </h6>
+                </div>
+            </div>
+
+            {% include 'partials/_messages.html' %}
+
+            <form action="{% url 'upload_txt' %}" method="post" enctype="multipart/form-data" class="upload_form">
+                {% csrf_token %}
+
+                <div class="my-3 text-center select-algo">
+                    <select name="algo" id="algo" class="algo form-control-sm">
+                        <option value="select">Select An Algorithm</option>
+                        <option value="Global">Global Alignment</option>
+                        <option value="">Local Alignment</option>
+                    </select>
+                </div>
+
+                <div class="my-3">
+                    <div class="panel primary">
+                        <div class="header">
+                            <h5>Upload Origin Genome Sequence</h5>
+                        </div>
+                        <div class="panel_body">
+                            <div class="my-2">
+                                <p>Please only upload valid FATSA Formatted data via text file</p>
+                            </div>
+                            <div class="my-2">
+                                <input type="file" id="files1" name="file1" class="hidden">
+                                <label for="files1" class="file1">Choose A File</label> <span id="file-name1"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 mb-2">
+                    <div class="panel primary">
+                        <div class="header">
+                            <h5>Upload Genome Sequence</h5>
+                        </div>
+                        <div class="panel_body">
+                            <div class="my-2">
+                                <p>Please only upload valid FATSA Formatted data via text file</p>
+                            </div>
+                            <div class="my-2">
+                                <input type="file" id="files2" name="file2" class="hidden">
+                                <label for="files2" class="file1">Choose A File</label> <span id="file-name2"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-div mt-5">
+                    <input type="submit" value="Run" class="run_btn">
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <style>
+        .footer {
+           position: fixed;
+           left: 0;
+           bottom: 0;
+           width: 100%;
+           height: 3%;
+           background-color: #fcc30f;
+           color: rgb(0, 0, 0);
+           text-align: center;
+        }
+        </style>
+    <div class="footer">
+        <p>Created by Nihal Afsal and Tyler Terry - Intro Into Bioinformatics - CS5950</p>
+    </div>
+
+{% endblock content %}
+
+{% block js_files %}
+    <script src="{% static 'genome/js/home.js' %}"></script>
+{% endblock %}

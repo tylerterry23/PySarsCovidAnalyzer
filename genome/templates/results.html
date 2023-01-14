@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+{% load sass_tags %}
+
+{% block title %} Upload File {% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% sass_src 'genome/css/results.scss' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="py-3 container">
+
+            {% include "partials/_loader.html" %}
+
+            {% include 'partials/_messages.html' %}
+
+            <div class="col-4 offset-4 logo">
+                <h2><img src="{% static 'logo.png' %}"></h2>
+            </div>
+
+            <div class="my-3 col-6 offset-3 panel1 box-shadow">
+                <div class="col-6 results">
+                    <h5>
+                        <a href="{% url 'upload_txt' %}">Upload</a>
+                    </h5>
+                </div>
+                <div class="col-6 upload">
+                    <h5>
+                        <a href="">Results</a>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="my-3">
+                <div class="panel primary">
+                    <div class="header">
+                        <h5>{{ global_or_local }}: {{ today }}</h5>
+                    </div>
+                    <div class="panel_body">
+                        <div class="my-2">
+                            <div class="row">
+                                <div class="col-12">
+                                    <table border="0" style="text-align: left; width: 100%;">
+                                        <tr>
+                                            <td><strong>Genome Sequence Analyzed:</strong> {{ file2_name }}</td>
+                                            <td rowspan="8" style="text-align: right;">
+                                                <img src="data:image/png;base64,{{ local_image_data }}" width="300"
+                                                     height="300">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Original Genome Sequence:</strong> {{ file1_name }}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Output:</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <pre style="white-space: pre-wrap; margin-bottom: 0;">{{ local_result1 }}</pre>
+                                                <pre style="white-space: pre-wrap; margin-bottom: 0;">{{ local_result2 }}</pre>
+                                                <pre style="white-space: pre-wrap; margin-bottom: 0;">{{ local_result3 }}</pre>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>{% if algo == "Global" %}Global{% elif algo == "" %}Local{% endif %}
+                                                Similarity Score: {{ local_result4_score }}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>{% if algo == "Global" %}Global{% elif algo == "" %}Local{% endif %} Similarity
+                                                Percentage: {{ result5_p_similarity }}%
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <style>
+        .footer {
+           position: fixed;
+           left: 0;
+           bottom: 0;
+           width: 100%;
+           height: 3%;
+           background-color: #fcc30f;
+           color: rgb(0, 0, 0);
+           text-align: center;
+        }
+        </style>
+    <div class="footer">
+        <p>Created by Nihal Afsal and Tyler Terry - Intro Into Bioinformatics - CS5950</p>
+    </div>
+
+{% endblock content %}
+
+{% block js_files %}
+    <script src="{% static 'genome/js/results.js' %}"></script>
+{% endblock %}
